@@ -19,9 +19,9 @@ export default function Header() {
   const toggleMobileMenu = useUIStore((state) => state.toggleMobileMenu)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex shrink-0 items-center gap-2 font-bold text-slate-900">
+        <Link to="/" className="flex shrink-0 items-center gap-2 font-bold text-neutral-900">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-600 text-white">
             <Wrench size={18} />
           </span>
@@ -37,7 +37,7 @@ export default function Header() {
               className={({ isActive }) =>
                 cn(
                   'rounded-lg px-3.5 py-2 text-sm font-medium transition-colors',
-                  isActive ? 'bg-accent-50 text-accent-700' : 'text-slate-600 hover:bg-slate-100',
+                  isActive ? 'bg-accent-50 text-accent-700' : 'text-neutral-600 hover:bg-neutral-100',
                 )
               }
             >
@@ -49,7 +49,7 @@ export default function Header() {
         <div className="flex items-center gap-1.5">
           <Link
             to="/favorites"
-            className="relative flex h-10 w-10 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 hover:text-accent-600"
+            className="relative flex h-10 w-10 items-center justify-center rounded-xl text-neutral-500 hover:bg-neutral-100 hover:text-accent-600"
             aria-label="Избранное"
           >
             <Heart size={19} />
@@ -62,7 +62,7 @@ export default function Header() {
 
           <button
             onClick={openCartDrawer}
-            className="relative flex h-10 w-10 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 hover:text-accent-600"
+            className="relative flex h-10 w-10 items-center justify-center rounded-xl text-neutral-500 hover:bg-neutral-100 hover:text-accent-600"
             aria-label="Корзина"
           >
             <ShoppingCart size={19} />
@@ -75,7 +75,7 @@ export default function Header() {
 
           <button
             onClick={toggleMobileMenu}
-            className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-neutral-500 hover:bg-neutral-100 md:hidden"
             aria-label="Меню"
           >
             <Menu size={20} />

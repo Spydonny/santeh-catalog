@@ -20,14 +20,14 @@ export default function Rating({ value, reviewsCount, size = 16, showValue = tru
             <Star
               key={index}
               size={size}
-              className={filled ? 'fill-amber-400 text-amber-400' : 'fill-slate-200 text-slate-200'}
+              className={filled ? 'fill-neutral-900 text-neutral-900' : 'fill-neutral-200 text-neutral-200'}
             />
           )
         })}
       </div>
-      {showValue && <span className="text-sm font-medium text-slate-700">{value.toFixed(1)}</span>}
+      {showValue && <span className="text-sm font-medium text-neutral-700">{value.toFixed(1)}</span>}
       {typeof reviewsCount === 'number' && (
-        <span className="text-sm text-slate-400">
+        <span className="text-sm text-neutral-400">
           {reviewsCount} {pluralizeReviews(reviewsCount)}
         </span>
       )}

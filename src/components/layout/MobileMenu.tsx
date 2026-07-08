@@ -22,7 +22,7 @@ export default function MobileMenu() {
       {open && (
         <div className="fixed inset-0 z-50 md:hidden">
           <motion.div
-            className="absolute inset-0 bg-slate-900/50"
+            className="absolute inset-0 bg-neutral-900/50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -36,10 +36,10 @@ export default function MobileMenu() {
             transition={{ type: 'tween', duration: 0.2 }}
           >
             <div className="mb-6 flex items-center justify-between">
-              <span className="font-bold text-slate-900">{COMPANY.name}</span>
+              <span className="font-bold text-neutral-900">{COMPANY.name}</span>
               <button
                 onClick={closeMobileMenu}
-                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100"
+                className="rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-100"
                 aria-label="Закрыть меню"
               >
                 <X size={20} />
@@ -56,7 +56,7 @@ export default function MobileMenu() {
                   className={({ isActive }) =>
                     cn(
                       'rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors',
-                      isActive ? 'bg-accent-50 text-accent-700' : 'text-slate-600 hover:bg-slate-100',
+                      isActive ? 'bg-accent-50 text-accent-700' : 'text-neutral-600 hover:bg-neutral-100',
                     )
                   }
                 >
@@ -65,7 +65,7 @@ export default function MobileMenu() {
               ))}
             </nav>
 
-            <div className="mt-auto border-t border-slate-100 pt-4 text-xs text-slate-400">
+            <div className="mt-auto border-t border-neutral-100 pt-4 text-xs text-neutral-400">
               <p>{COMPANY.address}</p>
               <p className="mt-1">{COMPANY.workHours}</p>
               <p className="mt-1">WhatsApp: +{WHATSAPP_PHONE}</p>

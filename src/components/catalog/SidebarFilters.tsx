@@ -20,8 +20,8 @@ interface SidebarFiltersProps {
 
 function FilterSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="border-b border-slate-100 py-5 first:pt-0 last:border-b-0">
-      <h3 className="mb-3 text-sm font-semibold text-slate-900">{title}</h3>
+    <div className="border-b border-neutral-100 py-5 first:pt-0 last:border-b-0">
+      <h3 className="mb-3 text-sm font-semibold text-neutral-900">{title}</h3>
       {children}
     </div>
   )
@@ -47,9 +47,9 @@ export default function SidebarFilters({
   }
 
   return (
-    <aside className="rounded-2xl border border-slate-200 bg-white p-5">
+    <aside className="rounded-2xl border border-neutral-200 bg-white p-5">
       <div className="mb-2 flex items-center justify-between">
-        <h2 className="text-base font-semibold text-slate-900">Фильтры</h2>
+        <h2 className="text-base font-semibold text-neutral-900">Фильтры</h2>
         <button onClick={onReset} className="text-xs font-medium text-accent-600 hover:underline">
           Сбросить
         </button>
@@ -57,7 +57,7 @@ export default function SidebarFilters({
 
       <FilterSection title="Категория">
         <div className="flex flex-col gap-2">
-          <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-neutral-600">
             <input
               type="radio"
               name="category"
@@ -68,7 +68,7 @@ export default function SidebarFilters({
             Все категории
           </label>
           {categories.map((item) => (
-            <label key={item.id} className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+            <label key={item.id} className="flex cursor-pointer items-center gap-2 text-sm text-neutral-600">
               <input
                 type="radio"
                 name="category"
@@ -85,7 +85,7 @@ export default function SidebarFilters({
       <FilterSection title="Бренд">
         <div className="flex flex-col gap-2">
           {brands.map((brand) => (
-            <label key={brand.id} className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+            <label key={brand.id} className="flex cursor-pointer items-center gap-2 text-sm text-neutral-600">
               <input
                 type="checkbox"
                 checked={selectedBrands.includes(brand.name)}
@@ -105,21 +105,21 @@ export default function SidebarFilters({
             placeholder={String(priceBounds.min)}
             value={minPrice ?? ''}
             onChange={(event) => onPriceChange(event.target.value ? Number(event.target.value) : undefined, maxPrice)}
-            className="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-sm focus:border-accent-400 focus:outline-none"
+            className="w-full rounded-lg border border-neutral-200 px-2.5 py-1.5 text-sm focus:border-accent-400 focus:outline-none"
           />
-          <span className="text-slate-300">—</span>
+          <span className="text-neutral-300">—</span>
           <input
             type="number"
             placeholder={String(priceBounds.max)}
             value={maxPrice ?? ''}
             onChange={(event) => onPriceChange(minPrice, event.target.value ? Number(event.target.value) : undefined)}
-            className="w-full rounded-lg border border-slate-200 px-2.5 py-1.5 text-sm focus:border-accent-400 focus:outline-none"
+            className="w-full rounded-lg border border-neutral-200 px-2.5 py-1.5 text-sm focus:border-accent-400 focus:outline-none"
           />
         </div>
       </FilterSection>
 
       <FilterSection title="Наличие">
-        <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-neutral-600">
           <input
             type="checkbox"
             checked={inStockOnly}

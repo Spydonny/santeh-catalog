@@ -82,8 +82,8 @@ export default function CatalogPage() {
       <Breadcrumbs items={[{ label: 'Каталог' }]} />
 
       <div className="mt-4 mb-6">
-        <h1 className="text-2xl font-bold text-slate-900">{activeCategory ? activeCategory.name : 'Каталог товаров'}</h1>
-        <p className="mt-1 text-sm text-slate-500">
+        <h1 className="text-2xl font-bold text-neutral-900">{activeCategory ? activeCategory.name : 'Каталог товаров'}</h1>
+        <p className="mt-1 text-sm text-neutral-500">
           {activeCategory ? activeCategory.description : 'Полный список трубопроводной арматуры и фитингов'}
         </p>
       </div>
@@ -93,7 +93,7 @@ export default function CatalogPage() {
           <SearchBar value={query} onChange={(value) => updateParams({ q: value || null })} className="flex-1" />
           <button
             onClick={() => setFiltersOpen(true)}
-            className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 hover:border-accent-400 hover:text-accent-700 lg:hidden"
+            className="flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-medium text-neutral-600 hover:border-accent-400 hover:text-accent-700 lg:hidden"
           >
             <SlidersHorizontal size={16} />
             Фильтры
@@ -114,7 +114,7 @@ export default function CatalogPage() {
         </div>
 
         <div>
-          <div className="mb-4 text-sm text-slate-500">Найдено товаров: {total}</div>
+          <div className="mb-4 text-sm text-neutral-500">Найдено товаров: {total}</div>
           <ProductGrid products={items} loading={loading} onResetFilters={handleReset} />
           {totalPages > 1 && (
             <div className="mt-8">

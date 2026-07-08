@@ -13,8 +13,8 @@ export default function AdminToolbar({ query, onQueryChange, onAdd, total }: Adm
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h1 className="text-xl font-bold text-slate-900">Управление товарами</h1>
-        <p className="text-sm text-slate-500">Всего товаров: {total}</p>
+        <h1 className="text-xl font-bold text-neutral-900">Управление товарами</h1>
+        <p className="text-sm text-neutral-500">Всего товаров: {total}</p>
       </div>
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
         <SearchBar value={query} onChange={onQueryChange} placeholder="Поиск товара..." className="sm:w-64" />

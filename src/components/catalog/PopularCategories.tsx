@@ -22,14 +22,14 @@ export default function PopularCategories() {
           <Link
             key={category.id}
             to={`/catalog?category=${category.slug}`}
-            className="group flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-accent-300 hover:shadow-card-hover"
+            className="group flex flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-accent-300 hover:shadow-card-hover"
           >
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-50 text-accent-600 transition-colors group-hover:bg-accent-600 group-hover:text-white">
               <Icon size={20} />
             </div>
             <div>
-              <h3 className="font-semibold text-slate-900">{category.name}</h3>
-              <p className="mt-0.5 text-xs text-slate-400">{count} товаров</p>
+              <h3 className="font-semibold text-neutral-900">{category.name}</h3>
+              <p className="mt-0.5 text-xs text-neutral-400">{count} товаров</p>
             </div>
           </Link>
         )

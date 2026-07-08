@@ -23,7 +23,7 @@ export default function CategoryTabs({ value, onChange }: CategoryTabsProps) {
           'flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors',
           value === null
             ? 'border-accent-600 bg-accent-600 text-white'
-            : 'border-slate-200 bg-white text-slate-600 hover:border-accent-300 hover:text-accent-700',
+            : 'border-neutral-200 bg-white text-neutral-600 hover:border-accent-300 hover:text-accent-700',
         )}
       >
         <LayoutGrid size={16} />
@@ -40,7 +40,7 @@ export default function CategoryTabs({ value, onChange }: CategoryTabsProps) {
               'flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors',
               active
                 ? 'border-accent-600 bg-accent-600 text-white'
-                : 'border-slate-200 bg-white text-slate-600 hover:border-accent-300 hover:text-accent-700',
+                : 'border-neutral-200 bg-white text-neutral-600 hover:border-accent-300 hover:text-accent-700',
             )}
           >
             <Icon size={16} />

@@ -11,9 +11,9 @@ const ICONS: Record<ToastVariant, typeof CheckCircle2> = {
 }
 
 const COLORS: Record<ToastVariant, string> = {
-  success: 'bg-emerald-600',
-  info: 'bg-accent-600',
-  error: 'bg-red-600',
+  success: 'bg-neutral-900',
+  info: 'bg-neutral-900',
+  error: 'bg-neutral-900',
 }
 
 function ToastItem({ toast }: { toast: ToastMessage }) {

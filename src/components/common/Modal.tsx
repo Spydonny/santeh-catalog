@@ -29,7 +29,7 @@ export default function Modal({ open, onClose, title, children }: ModalProps) {
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <motion.div
-            className="absolute inset-0 bg-slate-900/50"
+            className="absolute inset-0 bg-neutral-900/50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -43,10 +43,10 @@ export default function Modal({ open, onClose, title, children }: ModalProps) {
             transition={{ duration: 0.18 }}
           >
             <div className="mb-4 flex items-center justify-between">
-              {title && <h3 className="text-lg font-semibold text-slate-900">{title}</h3>}
+              {title && <h3 className="text-lg font-semibold text-neutral-900">{title}</h3>}
               <button
                 onClick={onClose}
-                className="ml-auto rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+                className="ml-auto rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-600"
                 aria-label="Закрыть"
               >
                 <X size={18} />

@@ -10,6 +10,7 @@ import Button from '@/components/common/Button'
 import EmptyState from '@/components/common/EmptyState'
 import { formatPrice } from '@/utils/format'
 import { getCartWhatsAppLink } from '@/utils/whatsapp'
+import { onImageError } from '@/utils/imageFallback'
 
 function getProductById(id: string) {
   return products.find((product) => product.id === id)
@@ -43,7 +44,7 @@ export default function CartDrawer() {
       {open && (
         <div className="fixed inset-0 z-50">
           <motion.div
-            className="absolute inset-0 bg-slate-900/50"
+            className="absolute inset-0 bg-neutral-900/50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -56,14 +57,14 @@ export default function CartDrawer() {
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.22 }}
           >
-            <div className="flex items-center justify-between border-b border-slate-100 p-5">
-              <h2 className="flex items-center gap-2 text-lg font-semibold text-slate-900">
+            <div className="flex items-center justify-between border-b border-neutral-100 p-5">
+              <h2 className="flex items-center gap-2 text-lg font-semibold text-neutral-900">
                 <ShoppingBag size={20} />
                 Корзина
               </h2>
               <button
                 onClick={closeCartDrawer}
-                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100"
+                className="rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-100"
                 aria-label="Закрыть корзину"
               >
                 <X size={20} />
@@ -82,13 +83,13 @@ export default function CartDrawer() {
                   {lines.map(({ item, product }) => (
                     <li key={product.id} className="flex gap-3">
                       <Link to={`/product/${product.slug}`} onClick={closeCartDrawer} className="shrink-0">
-                        <img src={product.images[0]} alt={product.name} className="h-16 w-16 rounded-xl object-cover" />
+                        <img src={product.images[0]} alt={product.name} onError={onImageError} className="h-16 w-16 rounded-xl object-cover" />
                       </Link>
                       <div className="flex flex-1 flex-col gap-1.5">
                         <Link
                           to={`/product/${product.slug}`}
                           onClick={closeCartDrawer}
-                          className="line-clamp-2 text-sm font-medium text-slate-900 hover:text-accent-600"
+                          className="line-clamp-2 text-sm font-medium text-neutral-900 hover:text-accent-600"
                         >
                           {product.name}
                         </Link>
@@ -100,7 +101,7 @@ export default function CartDrawer() {
                           />
                           <button
                             onClick={() => removeItem(product.id)}
-                            className="rounded-lg p-2 text-slate-400 hover:bg-red-50 hover:text-red-500"
+                            className="rounded-lg p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-900"
                             aria-label="Удалить товар"
                           >
                             <Trash2 size={16} />
@@ -114,10 +115,10 @@ export default function CartDrawer() {
             </div>
 
             {lines.length > 0 && (
-              <div className="border-t border-slate-100 p-5">
+              <div className="border-t border-neutral-100 p-5">
                 <div className="mb-4 flex items-center justify-between">
-                  <span className="text-sm text-slate-500">Итого</span>
-                  <span className="text-xl font-bold text-slate-900">{formatPrice(total)}</span>
+                  <span className="text-sm text-neutral-500">Итого</span>
+                  <span className="text-xl font-bold text-neutral-900">{formatPrice(total)}</span>
                 </div>
                 <div className="flex flex-col gap-2">
                   <a href={whatsAppLink} target="_blank" rel="noopener noreferrer">

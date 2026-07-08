@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
+import { onImageError } from '@/utils/imageFallback'
 
 interface ProductGalleryProps {
   images: string[]
@@ -12,7 +13,7 @@ export default function ProductGallery({ images, name }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative aspect-square overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+      <div className="relative aspect-square overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50">
         <AnimatePresence mode="wait">
           <motion.img
             key={activeIndex}
@@ -22,6 +23,7 @@ export default function ProductGallery({ images, name }: ProductGalleryProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
+            onError={onImageError}
             className="h-full w-full object-cover"
           />
         </AnimatePresence>
@@ -35,10 +37,10 @@ export default function ProductGallery({ images, name }: ProductGalleryProps) {
               onClick={() => setActiveIndex(index)}
               className={cn(
                 'aspect-square w-20 shrink-0 overflow-hidden rounded-xl border-2 transition-colors',
-                index === activeIndex ? 'border-accent-600' : 'border-transparent hover:border-slate-300',
+                index === activeIndex ? 'border-accent-600' : 'border-transparent hover:border-neutral-300',
               )}
             >
-              <img src={image} alt={`${name} — миниатюра ${index + 1}`} className="h-full w-full object-cover" />
+              <img src={image} alt={`${name} — миниатюра ${index + 1}`} onError={onImageError} className="h-full w-full object-cover" />
             </button>
           ))}
         </div>

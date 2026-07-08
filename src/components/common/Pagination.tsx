@@ -33,7 +33,7 @@ export default function Pagination({ page, totalPages, onChange }: PaginationPro
       <button
         onClick={() => onChange(Math.max(1, page - 1))}
         disabled={page === 1}
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-40"
+        className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-200 text-neutral-500 hover:bg-neutral-50 disabled:opacity-40"
         aria-label="Предыдущая страница"
       >
         <ChevronLeft size={16} />
@@ -41,7 +41,7 @@ export default function Pagination({ page, totalPages, onChange }: PaginationPro
 
       {pages.map((p, index) =>
         p === 'ellipsis' ? (
-          <span key={`ellipsis-${index}`} className="px-1.5 text-slate-400">
+          <span key={`ellipsis-${index}`} className="px-1.5 text-neutral-400">
             …
           </span>
         ) : (
@@ -50,7 +50,7 @@ export default function Pagination({ page, totalPages, onChange }: PaginationPro
             onClick={() => onChange(p)}
             className={cn(
               'flex h-9 w-9 items-center justify-center rounded-lg text-sm font-medium transition-colors',
-              p === page ? 'bg-accent-600 text-white' : 'border border-slate-200 text-slate-600 hover:bg-slate-50',
+              p === page ? 'bg-accent-600 text-white' : 'border border-neutral-200 text-neutral-600 hover:bg-neutral-50',
             )}
           >
             {p}
@@ -61,7 +61,7 @@ export default function Pagination({ page, totalPages, onChange }: PaginationPro
       <button
         onClick={() => onChange(Math.min(totalPages, page + 1))}
         disabled={page === totalPages}
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-40"
+        className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-200 text-neutral-500 hover:bg-neutral-50 disabled:opacity-40"
         aria-label="Следующая страница"
       >
         <ChevronRight size={16} />

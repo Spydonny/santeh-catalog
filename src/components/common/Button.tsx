@@ -12,17 +12,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm',
-  secondary: 'bg-slate-900 text-white hover:bg-slate-800 active:bg-slate-950',
-  outline: 'border border-slate-300 text-slate-700 hover:border-accent-400 hover:text-accent-700 bg-white',
-  ghost: 'text-slate-600 hover:bg-slate-100',
-  danger: 'bg-red-600 text-white hover:bg-red-700',
+  primary: 'bg-neutral-900 text-white hover:bg-neutral-700 active:bg-black',
+  secondary: 'bg-white text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white',
+  outline: 'border border-neutral-200 text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 bg-white',
+  ghost: 'text-neutral-600 hover:bg-neutral-100',
+  danger: 'bg-white text-neutral-900 border border-neutral-300 hover:border-neutral-900',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
   sm: 'text-sm px-3 py-1.5 gap-1.5 rounded-lg',
-  md: 'text-sm px-4 py-2.5 gap-2 rounded-xl',
-  lg: 'text-base px-6 py-3 gap-2 rounded-xl',
+  md: 'text-sm px-4 py-2.5 gap-2 rounded-lg',
+  lg: 'text-base px-6 py-3 gap-2 rounded-lg',
 }
 
 export default function Button({

@@ -1,6 +1,6 @@
 import type { Availability, Product, Specification } from '@/types'
 import { calcDiscountPercent } from '@/utils/format'
-import { generateProductImages } from '@/utils/placeholder'
+import { getStockImages } from './productImages'
 
 interface ProductInput {
   id: string
@@ -35,7 +35,7 @@ function makeProduct(input: ProductInput): Product {
     unit: input.unit ?? 'шт.',
     description: input.description,
     specifications: input.specifications,
-    images: generateProductImages(input.category, input.name, input.id, 3),
+    images: getStockImages(input.id, 3),
     availability: input.availability ?? 'in_stock',
     rating: input.rating,
     reviewsCount: input.reviewsCount,

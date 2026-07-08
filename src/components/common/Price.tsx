@@ -18,11 +18,11 @@ const sizeClasses = {
 export default function Price({ price, oldPrice, unit, size = 'md', className }: PriceProps) {
   return (
     <div className={cn('flex flex-wrap items-baseline gap-2', className)}>
-      <span className={cn('font-bold text-slate-900', sizeClasses[size])}>
+      <span className={cn('font-bold text-neutral-900', sizeClasses[size])}>
         {formatPrice(price)}
-        {unit ? <span className="ml-1 text-sm font-normal text-slate-400">/ {unit}</span> : null}
+        {unit ? <span className="ml-1 text-sm font-normal text-neutral-400">/ {unit}</span> : null}
       </span>
-      {oldPrice ? <span className="text-sm text-slate-400 line-through">{formatPrice(oldPrice)}</span> : null}
+      {oldPrice ? <span className="text-sm text-neutral-400 line-through">{formatPrice(oldPrice)}</span> : null}
     </div>
   )
 }

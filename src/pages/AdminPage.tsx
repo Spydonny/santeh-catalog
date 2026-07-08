@@ -29,7 +29,7 @@ export default function AdminPage() {
       <AdminTable products={filtered} onEdit={openDemoModal} onDelete={openDemoModal} />
 
       <Modal open={demoModalOpen} onClose={() => setDemoModalOpen(false)} title="Демо-версия">
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-neutral-600">
           Демо-версия.
           <br />
           Функция появится в рабочей версии.

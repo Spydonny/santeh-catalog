@@ -10,6 +10,7 @@ import Button from '@/components/common/Button'
 import EmptyState from '@/components/common/EmptyState'
 import { formatPrice } from '@/utils/format'
 import { getCartWhatsAppLink } from '@/utils/whatsapp'
+import { onImageError } from '@/utils/imageFallback'
 
 export default function CartPage() {
   const items = useCartStore((state) => state.items)
@@ -42,7 +43,7 @@ export default function CartPage() {
   return (
     <div className="container-page py-8">
       <Breadcrumbs items={[{ label: 'Корзина' }]} />
-      <h1 className="mt-4 mb-6 text-2xl font-bold text-slate-900">Корзина</h1>
+      <h1 className="mt-4 mb-6 text-2xl font-bold text-neutral-900">Корзина</h1>
 
       {lines.length === 0 ? (
         <EmptyState
@@ -59,21 +60,21 @@ export default function CartPage() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
           <div className="flex flex-col gap-4">
             {lines.map(({ item, product }) => (
-              <div key={product.id} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4">
+              <div key={product.id} className="flex gap-4 rounded-2xl border border-neutral-200 bg-white p-4">
                 <Link to={`/product/${product.slug}`} className="shrink-0">
-                  <img src={product.images[0]} alt={product.name} className="h-24 w-24 rounded-xl object-cover" />
+                  <img src={product.images[0]} alt={product.name} onError={onImageError} className="h-24 w-24 rounded-xl object-cover" />
                 </Link>
                 <div className="flex flex-1 flex-col justify-between gap-2">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <Link to={`/product/${product.slug}`} className="font-medium text-slate-900 hover:text-accent-600">
+                      <Link to={`/product/${product.slug}`} className="font-medium text-neutral-900 hover:text-accent-600">
                         {product.name}
                       </Link>
-                      <p className="mt-0.5 text-xs text-slate-400">{product.brand}</p>
+                      <p className="mt-0.5 text-xs text-neutral-400">{product.brand}</p>
                     </div>
                     <button
                       onClick={() => removeItem(product.id)}
-                      className="rounded-lg p-2 text-slate-400 hover:bg-red-50 hover:text-red-500"
+                      className="rounded-lg p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-900"
                       aria-label="Удалить товар"
                     >
                       <Trash2 size={17} />
@@ -89,27 +90,27 @@ export default function CartPage() {
 
             <button
               onClick={handleClear}
-              className="self-start text-sm font-medium text-slate-400 hover:text-red-500"
+              className="self-start text-sm font-medium text-neutral-400 hover:text-neutral-900"
             >
               Очистить корзину
             </button>
           </div>
 
-          <div className="h-fit rounded-2xl border border-slate-200 bg-white p-5">
-            <h2 className="mb-4 text-base font-semibold text-slate-900">Итого</h2>
-            <div className="flex flex-col gap-2 border-b border-slate-100 pb-4 text-sm">
-              <div className="flex justify-between text-slate-500">
+          <div className="h-fit rounded-2xl border border-neutral-200 bg-white p-5">
+            <h2 className="mb-4 text-base font-semibold text-neutral-900">Итого</h2>
+            <div className="flex flex-col gap-2 border-b border-neutral-100 pb-4 text-sm">
+              <div className="flex justify-between text-neutral-500">
                 <span>Товаров</span>
                 <span>{lines.reduce((sum, line) => sum + line.item.quantity, 0)} шт.</span>
               </div>
-              <div className="flex justify-between font-medium text-slate-900">
+              <div className="flex justify-between font-medium text-neutral-900">
                 <span>Сумма</span>
                 <span>{formatPrice(total)}</span>
               </div>
             </div>
             <div className="mt-4 flex items-center justify-between">
-              <span className="text-sm text-slate-500">К оплате</span>
-              <span className="text-xl font-bold text-slate-900">{formatPrice(total)}</span>
+              <span className="text-sm text-neutral-500">К оплате</span>
+              <span className="text-xl font-bold text-neutral-900">{formatPrice(total)}</span>
             </div>
             <a href={whatsAppLink} target="_blank" rel="noopener noreferrer" className="mt-5 block">
               <Button fullWidth size="lg">

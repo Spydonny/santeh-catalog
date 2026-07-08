@@ -14,7 +14,7 @@ export default function FavoritesPage() {
   return (
     <div className="container-page py-8">
       <Breadcrumbs items={[{ label: 'Избранное' }]} />
-      <h1 className="mt-4 mb-6 text-2xl font-bold text-slate-900">Избранное</h1>
+      <h1 className="mt-4 mb-6 text-2xl font-bold text-neutral-900">Избранное</h1>
 
       {favoriteProducts.length === 0 ? (
         <EmptyState
